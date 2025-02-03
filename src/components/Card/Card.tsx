@@ -1,6 +1,7 @@
 "use client"
 
 import styled from "styled-components"
+import InnerCompo from "../InnerCompo/InnerCompo"
 
 interface CardProps {
   children: React.ReactNode | React.ReactNode[]
@@ -18,5 +19,10 @@ const CardContainer = styled.div<{ bg: string }>`
 `
 
 export default function Card({ children, bgColor = "#ffffff" }: CardProps) {
-  return <CardContainer bg={bgColor}>{children}</CardContainer>
+  return (
+    <CardContainer bg={bgColor}>
+      <InnerCompo />
+      {children}
+    </CardContainer>
+  )
 }

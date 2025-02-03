@@ -1,3 +1,4 @@
+import { ContextProvider } from "@/utils/ContextProvider"
 import ReactQueryProviders from "@/utils/ReactQueryProviders"
 
 export default function RootLayout({
@@ -8,7 +9,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ margin: 0 }}>
-        <ReactQueryProviders>{children}</ReactQueryProviders>
+        <ReactQueryProviders>
+          <ContextProvider>{children}</ContextProvider>
+        </ReactQueryProviders>
       </body>
     </html>
   )
