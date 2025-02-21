@@ -1,5 +1,5 @@
-import { ContextProvider } from "@/utils/ContextProvider"
 import ReactQueryProviders from "@/utils/ReactQueryProviders"
+import StyledComponentsRegistry from "@/lib/registry"
 
 export default function RootLayout({
   children,
@@ -7,11 +7,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body style={{ margin: 0 }}>
-        <ReactQueryProviders>
-          <ContextProvider>{children}</ContextProvider>
-        </ReactQueryProviders>
+        <StyledComponentsRegistry>
+          <ReactQueryProviders>{children}</ReactQueryProviders>
+        </StyledComponentsRegistry>
       </body>
     </html>
   )
