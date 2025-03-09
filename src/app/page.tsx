@@ -1,15 +1,10 @@
 import Card from "@/components/Card/Card"
-import { HStack, VStack } from "@/components/FlexBoxGroup/styled"
+import HStack from "@/components/FlexBoxGroup/HStack"
+import VStack from "@/components/FlexBoxGroup/VStack"
 
 export default function Page() {
   return (
-    <VStack
-      bg="gray"
-      height="100vh"
-      justifyContent="center"
-      alignItems="center"
-      gap="32px"
-    >
+    <VStack bg="gray-100" justifyContent="center" alignItems="center" gap={32}>
       <span
         style={{
           color: "#ffffff",
@@ -21,7 +16,7 @@ export default function Page() {
         ARCHIVING
       </span>
 
-      <HStack gap="32px">
+      <HStack gap={32}>
         <Card bg="white">안녕하세요1</Card>
         <Card bg="white">안녕하세요2</Card>
       </HStack>
