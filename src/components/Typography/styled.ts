@@ -1,4 +1,4 @@
-import theme, { ColorsType, VariantsType } from "@src/styles/commonTheme"
+import theme, { ColorsType, VariantsType } from "@/styles/theme"
 import styled from "styled-components"
 
 interface TypographyProps {

@@ -29,6 +29,7 @@ interface FlexBoxStyledProps {
   overflowY?: string
   boxShadow?: string
   onClick?: () => void
+  $flexWrap?: string
 }
 
 interface VStackStyleProps extends FlexBoxStyledProps {
@@ -70,6 +71,7 @@ export const FlexBoxContainer = styled.div<FlexBoxStyledProps>`
   overflow-y: ${({ overflowY }) => overflowY};
   box-shadow: ${({ boxShadow }) => boxShadow};
   cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
+  flex-wrap: ${({ $flexWrap }) => $flexWrap};
 `
 
 export const VStackContainer = styled(FlexBox)<VStackStyleProps>`

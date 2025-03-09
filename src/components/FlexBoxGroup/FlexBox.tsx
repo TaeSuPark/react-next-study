@@ -3,7 +3,7 @@
 import { ColorsType, SpacesType } from "@/styles/theme"
 import { FlexBoxContainer } from "./styled"
 
-export interface FlexBoxProps {
+export interface FlexBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode | React.ReactNode[]
   p?: string
   pt?: SpacesType
@@ -30,6 +30,7 @@ export interface FlexBoxProps {
   overflowX?: string
   overflowY?: string
   boxShadow?: string
+  flexWrap?: string
   onClick?: () => void
 }
 
@@ -40,6 +41,7 @@ const FlexBox = ({
   flexGrow,
   border,
   borderRadius,
+  flexWrap,
   ...props
 }: FlexBoxProps) => {
   return (
@@ -50,6 +52,8 @@ const FlexBox = ({
       $alignItems={alignItems}
       $border={border}
       $borderRadius={borderRadius}
+      $flexWrap={flexWrap}
+      style={{ ...props.style }}
     >
       {children}
     </FlexBoxContainer>

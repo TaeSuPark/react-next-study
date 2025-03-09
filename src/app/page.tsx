@@ -1,25 +1,37 @@
-import Card from "@/components/Card/Card"
-import HStack from "@/components/FlexBoxGroup/HStack"
-import VStack from "@/components/FlexBoxGroup/VStack"
+import AnchorHeader from "@/components/AnchorHeader/AnchorHeader"
+import Section from "@/components/Section/Section"
+import AboutMe from "@/components/AboutMe/AboutMe"
+import Skills from "@/components/Skills/Skills"
+import Archiving from "@/components/Archiving/Archiving"
+import Projects from "@/components/Projects/Projects"
+import Career from "@/components/Career/Career"
 
-export default function Page() {
+export default function Home() {
+  const menus = ["About Me", "Skills", "Archiving", "Projects", "Career"]
+
   return (
-    <VStack bg="gray-100" justifyContent="center" alignItems="center" gap={32}>
-      <span
-        style={{
-          color: "#ffffff",
-          fontSize: "48px",
-          fontWeight: 700,
-          textDecoration: "underline",
-        }}
-      >
-        ARCHIVING
-      </span>
+    <div>
+      <AnchorHeader menus={menus} />
 
-      <HStack gap={32}>
-        <Card bg="white">안녕하세요1</Card>
-        <Card bg="white">안녕하세요2</Card>
-      </HStack>
-    </VStack>
+      <Section id="about-me" title="About Me" bg="white">
+        <AboutMe />
+      </Section>
+
+      <Section id="skills" title="Skills" bg="gray-100">
+        <Skills />
+      </Section>
+
+      <Section id="archiving" title="Archiving" bg="white">
+        <Archiving />
+      </Section>
+
+      <Section id="projects" title="Projects" bg="gray-100">
+        <Projects />
+      </Section>
+
+      <Section id="career" title="Career" bg="white">
+        <Career />
+      </Section>
+    </div>
   )
 }
