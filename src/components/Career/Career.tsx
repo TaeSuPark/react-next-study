@@ -2,86 +2,96 @@
 
 import VStack from "@/components/FlexBoxGroup/VStack"
 import HStack from "@/components/FlexBoxGroup/HStack"
+import React from "react"
+import CareerHeader from "../CareerContentGroup/CareerHeader"
+import CareerInfo from "../CareerContentGroup/CareerInfo"
+import styled from "styled-components"
+import Typography from "../Typography/Typograpy"
 
-interface CareerItemProps {
-  company: string
-  position: string
-  period: string
-  description: string[]
-}
+const mockCareer = [
+  {
+    companyName: "(주) 당근 마켓",
+    period: { startDate: "2024-01-01", endDate: "재직중" },
+    companyIntro: "이웃과 더 가까워지는 따뜻한 동네를 만들어요",
+    roles: ["프론트엔드"],
+    items: [
+      {
+        title: "지역 동네 업체 정보(비즈프로필) 관련 개발",
+        period: { startDate: "2024-01-01", endDate: "진행중" },
+        content:
+          "이웃의 사장님들과 고객님들을 효과적으로 연결하기 위한 비즈프로필 관련 기능 개발",
+      },
+    ],
+  },
+  {
+    companyName: "(주) 오픈 갤러리",
+    period: { startDate: "2020-01-01", endDate: "2023-12-31" },
+    companyIntro:
+      "그림을 렌탈하려는 고객들과 그림을 그리는 작가들을 중개하는 그림 렌탈 서비스 플랫폼",
+    roles: ["프론트엔드", "백엔드", "백오피스 기획", "테크 리딩"],
+    items: [
+      {
+        title: "작가 개인용 웹사이트 전체 리뉴얼 (Next.js)",
+        period: { startDate: "2024-01-01", endDate: "진행중" },
+        content:
+          "Django 풀 스택 기반의 작가 개인용 웹사이트를 Next.js와 Django REST 기반으로 마이그레이션",
+      },
+      {
+        title: "서버 배포 환경 변경 (AWS ECS)",
+        period: { startDate: "2022-01-01", endDate: "2022-06-30" },
+        content:
+          "서버 배포 환경을 AWS EB에서 Docker 기반의 AWS ECS로 변경 (개발 환경도 함께 변경)",
+      },
+      {
+        title: "대규모 서버 정리 작업 리드",
+        period: { startDate: "2021년 하반기" },
+        content:
+          "대규모 서버 정리 작업을 주도적으로 진행하여 코드 베이스 전반의 대청소 작업을 진행",
+      },
+      {
+        title: "개발 업무 외 기타 업무 담당",
+        period: { startDate: "2020년 상반기" },
+        content:
+          "채용, 사수, 코드 리뷰의 역할을 담당하고 팀 내에서 지식 공유와 문서화를 적극적으로 진행",
+      },
+      {
+        title: "백 오피스의 전반적인 관리 및 각종 기능 개발/기획",
+        period: { startDate: "2019년 하반기" },
+        content:
+          "백 오피스의 전반적인 관리 및 각종 기능 개발/기획을 담당하여 사내 직원의 업무 효율 개선",
+      },
+    ],
+  },
+]
 
-const CareerItem = ({
-  company,
-  position,
-  period,
-  description,
-}: CareerItemProps) => {
+const CareerContainer = styled.div`
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #c8c8c8;
+`
+
+export default function Career() {
   return (
-    <VStack
-      gap={16}
-      width="100%"
-      p="32px"
-      bg="white"
-      style={{ borderRadius: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
-    >
-      <HStack justifyContent="space-between" alignItems="center">
-        <VStack gap={4}>
-          <h3 style={{ fontSize: "24px", fontWeight: 600 }}>{company}</h3>
-          <span style={{ color: "#666" }}>{position}</span>
+    <VStack>
+      <HStack gap={24}>
+        <VStack>
+          <CareerContainer>
+            <Typography variant="title" color="black">
+              경력사항
+            </Typography>
+          </CareerContainer>
         </VStack>
-        <span style={{ color: "#666" }}>{period}</span>
+        <VStack gap={48}>
+          {mockCareer.map((career, idx) => (
+            <VStack key={idx} gap={24}>
+              <CareerHeader {...career} />
+              <CareerInfo items={career.items} />
+            </VStack>
+          ))}
+        </VStack>
       </HStack>
-
-      <ul style={{ paddingLeft: "20px" }}>
-        {description.map((item, index) => (
-          <li key={index} style={{ marginBottom: "8px", lineHeight: "1.6" }}>
-            {item}
-          </li>
-        ))}
-      </ul>
     </VStack>
   )
 }
-
-const Career = () => {
-  const careers = [
-    {
-      company: "ABC 기술",
-      position: "프론트엔드 개발자",
-      period: "2021.03 - 현재",
-      description: [
-        "React와 TypeScript를 사용하여 웹 애플리케이션 개발",
-        "사용자 경험 개선을 위한 UI/UX 리뉴얼 프로젝트 주도",
-        "성능 최적화를 통해 페이지 로딩 시간 40% 단축",
-        "주니어 개발자 멘토링 및 코드 리뷰 진행",
-      ],
-    },
-    {
-      company: "XYZ 스튜디오",
-      position: "웹 개발자",
-      period: "2019.07 - 2021.02",
-      description: [
-        "HTML, CSS, JavaScript를 사용한 웹사이트 개발",
-        "반응형 웹 디자인 구현",
-        "WordPress 기반 웹사이트 커스터마이징",
-        "클라이언트와 협업하여 요구사항 분석 및 구현",
-      ],
-    },
-  ]
-
-  return (
-    <VStack gap={40} alignItems="center">
-      {careers.map((career) => (
-        <CareerItem
-          key={career.company}
-          company={career.company}
-          position={career.position}
-          period={career.period}
-          description={career.description}
-        />
-      ))}
-    </VStack>
-  )
-}
-
-export default Career

@@ -21,10 +21,10 @@ const AboutMe = () => {
           {/* 프로필 이미지 */}
         </div>
         <VStack gap={16} width="60%">
-          <h3 style={{ fontSize: "24px", fontWeight: 600 }}>
+          <Typography variant="head-b" color="black">
             안녕하세요, 저는 개발자 000입니다
-          </h3>
-          <Typography variant="body-m">
+          </Typography>
+          <Typography variant="body-m" color="black">
             사용자 경험을 중요시하는 프론트엔드 개발자로, 새로운 기술을 배우고
             적용하는 것을 좋아합니다. 문제 해결에 열정을 가지고 있으며, 팀과
             협업하여 최상의 결과물을 만들어내는 것을 목표로 합니다.
@@ -35,8 +35,12 @@ const AboutMe = () => {
       <HStack gap={16} justifyContent="center">
         <Card bg="white">
           <VStack gap={8} alignItems="center">
-            <h4>이메일</h4>
-            <p>example@email.com</p>
+            <Typography variant="body-b" color="black">
+              이메일
+            </Typography>
+            <Typography variant="body-m" color="black">
+              example@email.com
+            </Typography>
           </VStack>
         </Card>
         <Card bg="white">
